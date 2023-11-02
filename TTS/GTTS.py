@@ -11,10 +11,13 @@ class GTTS:
         self.voices = []
 
     def run(self, text, filepath):
+        #american voices
         tts = gTTS(
             text=text,
             lang=settings.config["reddit"]["thread"]["post_lang"] or "en",
             slow=False,
+            lang_check=False,
+            tld="us",
         )
         tts.save(filepath)
 
